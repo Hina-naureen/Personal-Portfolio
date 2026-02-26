@@ -37,36 +37,23 @@ document.addEventListener("DOMContentLoaded", function () {
     .to(".header p",        { opacity: 1, y: -20, duration: 1 },   "-=0.8")
     .to(".btn-hero",        { opacity: 1, y: -10, duration: 0.8 }, "-=0.6");
 
-  // About section
-  gsap.from(".about h2", {
-    scrollTrigger: { trigger: ".about", start: "top 80%", toggleActions: "play none none none" },
-    opacity: 0, y: 30, duration: 1
-  });
-  gsap.from(".about p", {
-    scrollTrigger: { trigger: ".about", start: "top 80%", toggleActions: "play none none none" },
-    opacity: 0, y: 20, duration: 1, delay: 0.3
-  });
+  // Scroll animations using IntersectionObserver (reliable on all browsers)
+  var observerOptions = { threshold: 0.15 };
 
-  // Projects section
-  gsap.from(".project-item", {
-    scrollTrigger: { trigger: ".projects", start: "top 80%", toggleActions: "play none none none" },
-    opacity: 0, y: 40, duration: 1, stagger: 0.2
-  });
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
 
-  // Skills section
-  gsap.from(".skill-item", {
-    scrollTrigger: { trigger: ".skills", start: "top 80%", toggleActions: "play none none none" },
-    opacity: 0, scale: 0.8, duration: 0.6, stagger: 0.1
-  });
-
-  // Contact section
-  gsap.from(".contact h2", {
-    scrollTrigger: { trigger: ".contact", start: "top 80%", toggleActions: "play none none none" },
-    opacity: 0, y: 20, duration: 1
-  });
-  gsap.from(".contact-btn", {
-    scrollTrigger: { trigger: ".contact", start: "top 80%", toggleActions: "play none none none" },
-    opacity: 0, y: 20, duration: 0.8, stagger: 0.2, delay: 0.3
+  document.querySelectorAll(
+    ".about h2, .about p, .project-item, .skill-item, .contact h2, .contact-btn, .contact > p, .social-links"
+  ).forEach(function (el) {
+    el.classList.add("fade-up");
+    observer.observe(el);
   });
 
 });

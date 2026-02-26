@@ -375,6 +375,26 @@ body, html {
   border-top: 1px solid #1a1a1a;
 }
 
+/* ========== SCROLL ANIMATIONS ========== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-item.fade-up:nth-child(2) { transition-delay: 0.15s; }
+.project-item.fade-up:nth-child(3) { transition-delay: 0.3s; }
+.skill-item.fade-up:nth-child(2)   { transition-delay: 0.1s; }
+.skill-item.fade-up:nth-child(3)   { transition-delay: 0.2s; }
+.skill-item.fade-up:nth-child(4)   { transition-delay: 0.3s; }
+.skill-item.fade-up:nth-child(5)   { transition-delay: 0.4s; }
+.skill-item.fade-up:nth-child(6)   { transition-delay: 0.5s; }
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .nav-links {
