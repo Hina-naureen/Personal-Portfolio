@@ -1,59 +1,70 @@
 "use strict";
-
-// Register ScrollTrigger plugin (loaded via CDN)
-gsap.registerPlugin(ScrollTrigger);
-
-// Navbar scroll effect
-window.addEventListener("scroll", function () {
-  var navbar = document.querySelector(".navbar");
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-
-// Mobile hamburger menu
-var hamburger = document.getElementById("hamburger");
-var navLinks = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", function () {
-  navLinks.classList.toggle("open");
-});
-
-document.querySelectorAll(".nav-links a").forEach(function (link) {
-  link.addEventListener("click", function () {
-    navLinks.classList.remove("open");
-  });
-});
-
+Object.defineProperty(exports, "__esModule", { value: true });
+var gsap_1 = require("gsap");
+var ScrollTrigger_1 = require("gsap/ScrollTrigger");
+// GSAP اور ScrollTrigger کو رجسٹر کریں
+// اگر npm استعمال کر رہے ہیں تو آپ import statements استعمال کریں؛
+// اگر CDN استعمال نہیں کر رہے تو یہ statements comment کر دیں یا حذف کر دیں
+// import gsap from "gsap";
+// import ScrollTrigger from "gsap/ScrollTrigger";
+// اگر import statements استعمال کر رہے ہیں تو رجسٹر کریں:
+gsap_1.default.registerPlugin(ScrollTrigger_1.default);
 document.addEventListener("DOMContentLoaded", function () {
-
-  // Hero section animations
-  var headerTimeline = gsap.timeline();
-  headerTimeline
-    .to(".animate-element", { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)" })
-    .to(".header h1",       { opacity: 1, y: -20, duration: 1 },   "-=0.5")
-    .to(".header p",        { opacity: 1, y: -20, duration: 1 },   "-=0.8")
-    .to(".btn-hero",        { opacity: 1, y: -10, duration: 0.8 }, "-=0.6");
-
-  // Scroll animations using IntersectionObserver (reliable on all browsers)
-  var observerOptions = { threshold: 0.15 };
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
+    // ہیڈر سیکشن اینیمیشن
+    var headerTimeline = gsap_1.default.timeline();
+    headerTimeline
+        .to(".animate-element", {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: "back.out(1.7)"
+    })
+        .to(".header h1", { opacity: 1, y: -20, duration: 1 }, "-=0.5")
+        .to(".header p", { opacity: 1, y: -20, duration: 1 }, "-=0.8");
+    // اباؤٹ سیکشن اینیمیشن
+    gsap_1.default.from(".about h2", {
+        scrollTrigger: {
+            trigger: ".about",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 20,
+        duration: 1
     });
-  }, observerOptions);
-
-  document.querySelectorAll(
-    ".about h2, .about p, .project-item, .skill-item, .contact h2, .contact-btn, .contact > p, .social-links"
-  ).forEach(function (el) {
-    el.classList.add("fade-up");
-    observer.observe(el);
-  });
-
+    // پروجیکٹس سیکشن اینیمیشن
+    gsap_1.default.from(".project-item", {
+        scrollTrigger: {
+            trigger: ".projects",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        stagger: 0.2
+    });
+    // سکلز سیکشن اینیمیشن
+    gsap_1.default.from(".skill-item", {
+        scrollTrigger: {
+            trigger: ".skills",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 20,
+        duration: 1,
+        stagger: 0.1
+    });
+    // رابطہ سیکشن اینیمیشن
+    gsap_1.default.from(".contact h2", {
+        scrollTrigger: {
+            trigger: ".contact",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 20,
+        duration: 1
+    });
 });
