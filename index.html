@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hina Yaqoob | Web Developer & Designer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-logo">HY</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Header / Hero Section -->
+  <header class="header" id="home">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="https://cdn.pixabay.com/video/2023/10/02/183279-870457579_large.mp4" type="video/mp4">
+    </video>
+    <div class="header-overlay"></div>
+    <div class="logo">
+      <img src="image/pct.jpg" alt="Hina Yaqoob">
+    </div>
+    <div class="animate-element"></div>
+    <h1>Hi, I'm Hina Yaqoob</h1>
+    <p>A Passionate Web Developer &amp; Designer</p>
+    <a href="#projects" class="btn-hero">View My Work</a>
+  </header>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm Hina Yaqoob, a dedicated web developer and designer with a passion for creating
+      beautiful, functional websites. I specialize in front-end development and UI/UX design,
+      bringing ideas to life with clean code and creative design.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <h2>My Projects</h2>
+    <div class="project-list">
+      <div class="project-item">
+        <img src="image/project1.jpg" alt="Project 1" onerror="this.style.display='none'">
+        <h3>Project 1</h3>
+        <p>A responsive web application built with HTML, CSS, and JavaScript showcasing modern design principles.</p>
+        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="project-item">
+        <img src="image/project2.jpg" alt="Project 2" onerror="this.style.display='none'">
+        <h3>Project 2</h3>
+        <p>An interactive UI/UX design project with smooth animations and a user-friendly interface.</p>
+        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="project-item">
+        <img src="image/project3.jpg" alt="Project 3" onerror="this.style.display='none'">
+        <h3>Project 3</h3>
+        <p>A full-stack web project demonstrating advanced React skills and modern development practices.</p>
+        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-list">
+      <div class="skill-item"><i class="fab fa-html5"></i> HTML5</div>
+      <div class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</div>
+      <div class="skill-item"><i class="fab fa-js"></i> JavaScript</div>
+      <div class="skill-item"><i class="fab fa-react"></i> React</div>
+      <div class="skill-item"><i class="fab fa-figma"></i> Figma</div>
+      <div class="skill-item"><i class="fas fa-paint-brush"></i> Photoshop</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Get In Touch</h2>
+    <p>Feel free to reach out for collaborations or just a friendly hello!</p>
+    <div class="contact-links">
+      <a href="mailto:hinayaqoob@example.com" class="contact-btn">
+        <i class="fas fa-envelope"></i> hinayaqoob@example.com
+      </a>
+      <a href="tel:+921234567890" class="contact-btn">
+        <i class="fas fa-phone"></i> +92 123 4567890
+      </a>
+    </div>
+    <div class="social-links">
+      <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Hina Yaqoob. All rights reserved.</p>
+  </footer>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
